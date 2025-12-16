@@ -1,28 +1,21 @@
-This project is a Django-based movie recommendation system. It allows users to browse movies, rate them, and receive personalized recommendations based on their ratings and the ratings of similar users. The system leverages a simple collaborative filtering approach.
+"""Django's command-line utility for administrative tasks."""
+import os
+import sys
 
-.
-├── manage.py
-├── movie_recommendation_system/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── recommendations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── recommendation_engine.py
-│   ├── urls.py
-│   ├── views.py
-│   └── forms.py
-├── users/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── urls.py
-│   ├── views.py
-│   └── forms.py
-└── requirements.txt
+
+def main():
+    """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'movie_recommendation_system.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+
+if __name__ == '__main__':
+    main()
